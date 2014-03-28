@@ -2,8 +2,8 @@
 # $1 is to test if we have to send all png
 # usage: this_script fulltemp
 IP_address="ftpperso.free.fr"
-username="echartet"
-password="kamoun26"
+username=""
+password=""
 fichierjpg="/img/cam$(date +"%m%d%Y%H").jpg"
 fichiermp4="/img/cam$(date +"%m%d%Y%H").mp4"
 
