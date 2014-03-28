@@ -1,26 +1,0 @@
-[?1049h[1;52r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                             File: /tmp/crontab.OQBR3N/crontab                                                                [3;1H(B[m# Edit this file to introduce tasks to be run by cron.[4d#[5d# Each task to run has to be defined through a single line[6d# indicating with different fields when the task will be run[7d# and what command to run for the task[8d#[9d# To define the time you can provide concrete values for[10d# minute (m), hour (h), day of month (dom), month (mon),[11d# and day of week (dow) or use '*' in these fields (for 'any').#[12d# Notice that tasks will be started based on the cron's system[13d# daemon's notion of time and timezones.[14d#[15d# Output of the crontab jobs (including errors) is sent through[16d# email to the user the crontab file belongs to (unless redirected).[17d#[18d# For example, you can run a backup of all your user accounts[19d# at 5 a.m every week with:[21d# m h  dom mon dow   command[22d0 9 * * * /bin/bash -x /home/pi/cam/pushcam.sh LD fulltemp[23d0 12,16 * * * /bin/bash -x /home/pi/cam/pushcam.sh HD[24d0 10,11,13,14,15,17,18 * * *  /bin/bash -x /home/pi/cam/pushcam.sh LD[25d#0 21 * * * /bin/bash -x /home/pi/cam/maintenance.sh[26d*/5 * * * * /home/pi/cam/readtemp.pl[27d*/5 * * * * /home/pi/cam/RRDtemp/createpng.sh[28d0 7 0 * * /bin/bash reboot[50;63H(B[0;7m[ Read 26 lines ][51d^G(B[m Get Help[51;24H(B[0;7m^O(B[m WriteOut[51;47H(B[0;7m^R(B[m Read File[51;70H(B[0;7m^Y(B[m Prev Page[51;93H(B[0;7m^K(B[m Cut Text[51;116H(B[0;7m^C(B[m Cur Pos[52d(B[0;7m^X(B[m Exit[52;24H(B[0;7m^J(B[m Justify[52;47H(B[0;7m^W(B[m Where Is[52;70H(B[0;7m^V(B[m Next Page[52;93H(B[0;7m^U(B[m UnCut Text[52;116H(B[0;7m^T(B[m To Spell[3d[50;46H(B[0;7m[ line 1/27 (3%), col 1/55 (1%), char 0/1111 (0%) ][3d(B[m[4d[A#[51d[J[52;142H[52;1H[?1049l[?1l># Edit this file to introduce tasks to be run by cron.
-# 
-# Each task to run has to be defined through a single line
-# indicating with different fields when the task will be run
-# and what command to run for the task
-# 
-# To define the time you can provide concrete values for
-# minute (m), hour (h), day of month (dom), month (mon),
-# and day of week (dow) or use '*' in these fields (for 'any').# 
-# Notice that tasks will be started based on the cron's system
-# daemon's notion of time and timezones.
-# 
-# Output of the crontab jobs (including errors) is sent through
-# email to the user the crontab file belongs to (unless redirected).
-# 
-# For example, you can run a backup of all your user accounts
-# at 5 a.m every week with:
- 
-# m h  dom mon dow   command
-0 9 * * * /bin/bash -x /home/pi/cam/pushcam.sh LD fulltemp
-0 12,16 * * * /bin/bash -x /home/pi/cam/pushcam.sh HD
-0 10,11,13,14,15,17,18 * * *  /bin/bash -x /home/pi/cam/pushcam.sh LD
-#0 21 * * * /bin/bash -x /home/pi/cam/maintenance.sh
-*/5 * * * * /home/pi/cam/readtemp.pl
-*/5 * * * * /home/pi/cam/RRDtemp/createpng.sh 
-0 7 0 * * /bin/bash reboot
