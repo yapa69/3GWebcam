@@ -1,0 +1,13 @@
+ _____     _                _       _   
+| ____|___| |__   __ _ _ __| |_ ___| |_ 
+|  _| / __| '_ \ / _` | '__| __/ _ \ __|
+| |__| (__| | | | (_| | |  | ||  __/ |_ 
+|_____\___|_| |_|\__,_|_|   \__\___|\__|
+                                        
+
+
+01/03/2014 : [Site] Ajout meteo
+02/03/2014 : [Site] Zoom sur les images HD
+06/03/2014 : [Site] Ajout time lapse, maj à 1h, 1 video par mois
+
+To do :[Camera] Navigation temperature par jour
