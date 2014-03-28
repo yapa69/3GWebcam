@@ -1,0 +1,8 @@
+#!/bin/sh
+PATH=/usr/local/bin:/bin:/usr/bin
+#/sbin/ifconfig eth0 down
+wvdial pin >/dev/null 2>&1 &
+echo "pin"
+sleep 5
+wvdial BYou >/dev/null 2>&1 &
+echo "connecting..."

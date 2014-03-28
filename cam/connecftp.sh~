@@ -1,0 +1,20 @@
+#/bin/bash
+# $1 is to test if we have to send all png
+# usage : this_script fulltemp
+fichierjpg="/img/cam$(date +"%m%d%Y%H").jpg"
+fichiermp4="/img/cam$(date +"%m%d%Y%H").mp4"
+
+if [[ $1 = "fulltemp" ]]
+then
+scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null /home/pi/cam/img/lastvideo.mp4 tbirckel@kim.terrier.im/echartet/img/$fichiermp4
+
+elif [[ $1 = "boot" ]]
+then
+scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null /home/pi/cam/log/initboot.tar.gz tbirckel@kim.terrier.im/echartet
+
+
+else
+scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null /home/pi/cam/img/lastcapture.jpg tbirckel@kim.terrier.im/echartet/img/$fichierjpg
+
+
+fi

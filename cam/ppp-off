@@ -1,0 +1,9 @@
+#!/bin/sh
+PATH=/usr/local/bin:/bin:/usr/bin
+echo -n "Disconnecting... "
+killall wvdial
+sleep 2
+echo -e "\a\c"
+#/sbin/ifconfig eth0 up
+#/sbin/dhclient eth0
+echo "Complete!"
