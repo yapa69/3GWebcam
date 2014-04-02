@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ############################################
 #
@@ -7,15 +7,20 @@
 # Tim
 ############################################
 
+# Get variables from configuration file
+source conf.sh
+
+${TAR_PATH} zcf ${HOME_DIR}/log/initboot.tar.gz /var/log/syslog
 
 #at boot
-#/bin/bash /home/pi/cam/ppp-on
-#sleep 30
+${BASH_PATH} /home/pi/cam/ppp-on
+sleep 30
 
-ntpdate
+service ntp stop
+ntpdate pool.ntp.org
+service ntp start
 
 #send trought ftp
-tar zcf /home/pi/cam/log/initboot.tar.gz /var/log/syslog
-/bin/bash /home/pi/cam/connecftp.sh boot
+${BASH_PATH} ${HOME_DIR}/connecftp.sh boot
 
-#/bin/bash /home/pi/cam/ppp-off
+${BASH_PATH} /home/pi/cam/ppp-off

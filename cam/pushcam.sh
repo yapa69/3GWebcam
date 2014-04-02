@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ############################################
 #
@@ -7,44 +7,50 @@
 # Tim
 ############################################
 
-#Heat the resistor
-python /home/pi/cam/chauffe.py
+# Exit as soon as a command does not return 0
+set -e
+
+# Get variables from configuration file
+source conf.sh
+
+# Heat the resistor
+${PYTHON_PATH} ${HOME_DIR}/chauffe.py
 sleep 5
 
-#create png
-/bin/bash /home/pi/cam/RRDtemp/createpng.sh
+# Create png
+${BASH_PATH} ${HOME_DIR}/RRDtemp/createpng.sh
 
-#Get pictures from the cam
-if [[ $1 = "HD" ]] ; then
+# Get pictures from the cam
+if [ "$1" = HD ] ; then
 	echo "HD"
-	raspistill -o /home/pi/cam/img/lastcapture.jpg -w 960 -h 720 -q 50 -n >> /tmp/sortiecam.log
+	raspistill -o ${HOME_DIR}/img/lastcapture.jpg -w 960 -h 720 -q 50 -n
 fi
 
-if [[ $1 = "LD" ]] ; then
+if [ "$1" = LD ] ; then
 	echo "LD"
-	raspistill -o /home/pi/cam/img/lastcapture.jpg -w 640 -h 480 -q 40 -n >> /tmp/sortiecam.log
+	raspistill -o ${HOME_DIR}/img/lastcapture.jpg -w 640 -h 480 -q 40 -n
 fi
 
-if [[ $1 = "MP4" ]] ; then
+if [ "$1" = MP4 ] ; then
 	echo "MP4"
-	raspivid -o /home/pi/cam/img/lastvideo.h264 -t 10000 --bitrate 1000000 -w 640 -h 480 -fps 12 -n
-	rm /home/pi/cam/img/lastvideo.mp4
+	raspivid -o ${HOME_DIR}/img/lastvideo.h264 -t 10000 --bitrate 1000000 -w 640 -h 480 -fps 12 -n
+	rm $HOME_DIR/img/lastvideo.mp4
 	sleep 1
-	MP4Box -fps 12 -add /home/pi/cam/img/lastvideo.h264 /home/pi/cam/img/lastvideo.mp4
+	MP4Box -fps 12 -add ${HOME_DIR}/img/lastvideo.h264 ${HOME_DIR}/img/lastvideo.mp4
 fi
 
-#connect in 3G
+# Connect in 3G
 sleep 5
-/bin/bash /home/pi/cam/ppp-on
+${BASH_PATH} ${HOME_DIR}/ppp-on
 sleep 30
 
-#send trought ftp
-if [[ $2 = "fulltemp" ]] ; then
+# Send trought ftp
+if [ "$2" = fulltemp ] ; then
 	echo "full temperature requested"
-	/bin/bash /home/pi/cam/connecftp.sh fulltemp
+	${BASH_PATH} ${HOME_DIR}/connecftp.sh fulltemp
 else
-	/bin/bash /home/pi/cam/connecftp.sh
+	${BASH_PATH} ${HOME_DIR}/connecftp.sh
 fi
 sleep 5
 
-/bin/bash /home/pi/cam/ppp-off
+${BASH_PATH} ${HOME_DIR}/ppp-off
