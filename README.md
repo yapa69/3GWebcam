@@ -1,7 +1,5 @@
-3GWebcam
-========
-
 ![image](http://echartet.birckel.eu/img/logo3GWebcam.png)
+========
 
 Prerequesites Camera :
 
