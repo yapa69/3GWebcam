@@ -13,18 +13,18 @@
 	<script src="js/lightbox-2.6.min.js"></script>
 	<script src="js/modernizr.custom.js"></script>
 	<script>
-	$(function() {
-	$("#datepicker").datepicker({
-	     changeMonth:true,
-	     changeYear:true,
-	     yearRange:"-100:+0",
-		 //dateFormat: 'dd/mm/yy',
-		 //dateFormat: 'dd/mm/yy',
-	  });
-	   });
+		$(function() {
+			$("#datepicker").datepicker({
+		    	changeMonth:true,
+		     	changeYear:true,
+		     	yearRange:"-100:+0",
+			 	//dateFormat: 'dd/mm/yy',
+			 	//dateFormat: 'dd/mm/yy',
+		  	});
+		});
 	</script>
-	<style>
 
+	<style>
 	/* Swipe 2 required styles */
 
 	.swipe {
@@ -43,7 +43,6 @@
 	}
 
 	/* END required styles */
-
 	</style>
 
 </head>
@@ -60,20 +59,16 @@
 	$datestart = date("Y-m-d 0".$start_hour.":00:00");
 	$datestartTS = strtotime($datestart);
 	$month = date("m");
-	
 
-   	if (isset($_POST['date'])){
-	   $dateutilisateur = $_POST['date'];
+   	if (isset($_POST['date'])) {
+		$dateutilisateur = $_POST['date'];
 		//echo ($dateutilisateur);
-			$dateuser = strtotime($dateutilisateur);
-			$datenow = date("mdY$current_hour", $dateuser);
-			$month = date("m",$dateuser);
-			$datestart = date("Y-m-d 0".$start_hour.":00:00",$dateuser);
-			$datestartTS = strtotime($datestart);
+		$dateuser = strtotime($dateutilisateur);
+		$datenow = date("mdY$current_hour", $dateuser);
+		$month = date("m",$dateuser);
+		$datestart = date("Y-m-d 0".$start_hour.":00:00",$dateuser);
+		$datestartTS = strtotime($datestart);
 	}
-
-	
-
 
 	/*$objDateTime = new DateTime('NOW');
 	$current_hour = $objDateTime->format('H');
@@ -81,30 +76,23 @@
 	$start_hour_date = DateTime::createFromFormat('mdYH', $start_hour_date_string.$start_hour );
 	*/
 	
-	
-
-	
 	$dateforpickernow = date("d/m/Y");
 	
-
-
-	
-	if ($current_hour < $start_hour) {//morning
+	if ($current_hour < $start_hour) { //morning
 		//$objDateTime = new DateTime('yesterday');
 		$current_hour = $end_hour; // on affiche toutes les heure
 		$datestartTS = $datestartTS - 86400 ;//journée précédente
 	}
 	
-	if ($current_hour > $end_hour || $datetoday > $datenow) {//evening after 18h
+	if ($current_hour > $end_hour || $datetoday > $datenow) { //evening after 18h
 		$current_hour = $end_hour;
 	}
 	
-	
-
 	echo ('<div id="mySwipe" style="max-width:700px;margin:0 auto" class="swipe">
 	<div class="swipe-wrap" text-align:right>
 	
 	<div><b><video src="img/timelapse'.$month.'.mp4?'.filectime('img/timelapse'.$month.'.mp4').'" id="timelapse" controls="controls">firefox ou chrom svp</video>Time lapse</b></div>');
+
 	for ($i = 0 ; $i <= ($current_hour - $start_hour); $i++) {
 		//$intervalle_h=DateInterval::createfromdatestring('+1 hours');
 		//$datestring = $start_hour_date->format('mdYH');
@@ -115,55 +103,48 @@
 	
 		$date = date("mdYH", $datestartTS + (3600*$i));
 		$dateuserfriendly = date("d/m/Y H\h", $datestartTS + (3600*$i));
-		if((($start_hour + $i) == 12) ){
+
+		if((($start_hour + $i) == 12) ) {
 			echo ('<div><b><video src="img/cam'.$date.'.mp4" id="mov'.$date.'" controls="controls">utilisez un vrai navigateur comme firefox ou chrome</video>'.$dateuserfriendly.'</b></div>');
-		}
-		else{
-			
+		} else {
 			if (file_exists('img/cam'.$date.'.jpg')) {
-				if( ($start_hour + $i) == 16 || ($start_hour + $i) == 9){
+				if( ($start_hour + $i) == 16 || ($start_hour + $i) == 9) {
 					echo ('<div><b><a href="img/cam'.$date.'.jpg" data-lightbox="image-'.$date.'"><img src="img/cam'.$date.'.jpg" id="" width="100%"/></a>'.$dateuserfriendly.'</b></div>');
-				}
-				else{
+				} else {
 					echo ('<div><b><img src="img/cam'.$date.'.jpg" id="'.$date.'" width="100%"></a>'.$dateuserfriendly.'</b></div>');
 				}
-			}
-			else{
+			} else {
 				echo ('<div><b><img src="img/camnotfound.png" width="100%" ></a>'.$dateuserfriendly.'</b></div>');
 			}
-			
 		}
 	}
-	echo("\n</div>");
 
+	echo("\n</div>");
 	echo("\n<div style=\"text-align:center;padding-top:0px;\">");
-	echo    ("\n<button onclick=\"mySwipe.slide(0,500)\">time lapse</button>");
+	echo("\n<button onclick=\"mySwipe.slide(0,500)\">time lapse</button>");
+
 	for ($i = 1 ; $i <= ($current_hour - $start_hour) +1; $i++) {
-		if((($start_hour + $i - 1 ) == 12)){
+		if ((($start_hour + $i - 1 ) == 12)) {
 			echo 	("\n<button onclick=\"mySwipe.slide($i,500)\">".($start_hour + $i -1)."h (vidéo)</button>");
-		}
-		elseif((($start_hour + $i -1 ) == 16 || ($start_hour + $i-1) == 9)){
+		} elseif((($start_hour + $i -1 ) == 16 || ($start_hour + $i-1) == 9)) {
 			echo 	("\n<button onclick=\"mySwipe.slide($i,500)\">".($start_hour + $i -1)."h (HD)</button>");
-		}
-		else{
+		} else {
 			echo 	("\n<button onclick=\"mySwipe.slide($i,500)\">".($start_hour + $i -1)."h</button>");
 		}
 	}
+
 	echo("\n</div>");
-	
 	echo('
 		<div><b>
-	<form method="post" action="">
+		<form method="post" action="">
 		Date (mois/jj/aaaa): <input type="text" name="date" id="datepicker" ></input>
 		<button type="submit" class="like" name="foo" value="bar">Màj</button>
-	</form>
-	</b>
-	
-</div> '); 
+		</form>
+		</b>
+		</div> '); 
 ?>
 
 <?php
-		
 		$meteoURL = 'http://widget.meteocity.com/NzMyMTF8NXw0fDF8MXxGRkZGRkZ8MXxGRkZGRkZ8Y3wx/';
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $meteoURL);
@@ -171,7 +152,6 @@
 		curl_setopt($ch, CURLOPT_USERAGENT, 'What the fuck');
 		$resultat = curl_exec ($ch);
 
-	
 		curl_close($ch);
 
 		$pos = strrpos($resultat, "<body>");
@@ -181,8 +161,7 @@
 		echo '<div style="max-width:700px;display:block;text-align:center;margin:10px;padding:10px 20px">';
 		echo $newmeteo;
 		echo "</div>";
-	?>
-
+?>
 
 <div id="mySwipePNG" style="max-width:700px;margin:0 auto" class="swipe">
 	<div class="swipe-wrap" text-align:right>
@@ -211,8 +190,8 @@
 
 
 <script src='js/swipe.js'></script>
-<script>
 
+<script>
 // pure JS
 <?php
 echo ('
@@ -220,7 +199,7 @@ var elem = document.getElementById(\'mySwipe\');
 window.mySwipe = Swipe(elem, {
 
    startSlide: '.($current_hour - $start_hour +1).',');
-   ?>
+?>
   // auto: 3000,
   continuous: false,
   // disableScroll: true,
@@ -231,13 +210,13 @@ window.mySwipe = Swipe(elem, {
 
 var elem = document.getElementById('mySwipePNG');
 window.mySwipePNG = Swipe(elem, {
-   startSlide: 4,
-  // auto: 3000,
-  continuous: false,
-  // disableScroll: true,
-  // stopPropagation: true,
-  // callback: function(index, element) {},
-  // transitionEnd: function(index, element) {}
+	startSlide: 4,
+  	// auto: 3000,
+  	continuous: false,
+  	// disableScroll: true,
+  	// stopPropagation: true,
+  	// callback: function(index, element) {},
+  	// transitionEnd: function(index, element) {}
 });
 
 // with jQuery
