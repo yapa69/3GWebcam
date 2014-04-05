@@ -19,7 +19,7 @@ fill root crontab (crontab -e) with :
 
 boot script
 
-> sudo ln -s /home/pi/3GWebcam/initconnec.sh /etc/init.d/initconnec.sh
+> sudo ln -s /home/pi/3GWebcam/cam/initconnec.sh /etc/init.d/initconnec.sh
 
 
 
