@@ -2,7 +2,7 @@
 
 ############################################
 #
-# Connexion 3G + FTP
+# @boot: Date synch + logs sent to server
 #
 # Tim
 ############################################
@@ -10,7 +10,7 @@
 # Get variables from configuration file
 source conf.sh
 
-${TAR_PATH} zcf ${HOME_DIR}/log/initboot.tar.gz /var/log/syslog
+${TAR_PATH} zcfP ${HOME_DIR}/log/initboot.tar.gz /var/log/syslog
 
 #at boot
 ${BASH_PATH} ${HOME_DIR}/ppp-on
