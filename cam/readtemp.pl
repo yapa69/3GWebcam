@@ -32,7 +32,7 @@ if ($temp_readings[2] ne 'U') {$temp_readings[2] -= $cpu_correction;}
 
 
 #update the database
-`/usr/bin/rrdtool update  /home/pi/cam/RRDtemp/multirPItemp.rrd N:$temp_readings[1]:$temp_readings[0]:$temp_readings[2]`;
+system("/usr/bin/rrdtool update /home/pi/3GWebcam/cam/RRDtemp/multirPItemp.rrd N:$temp_readings[1]:$temp_readings[0]:$temp_readings[2]");
 print "Temp in = $temp_readings[1]    Temp out = $temp_readings[0]  Temp cpu = $temp_readings[2]\n";
 
 sub check_modules {
