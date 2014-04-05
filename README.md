@@ -5,7 +5,7 @@ Prerequesites Camera :
 
 > apt-get install wvdial ftp
 
-Git clone the project in your home directory (/home/pi/3GWebcam)
+Git clone the project in your home directory
 > git clone http://github.com/yapa69/3GWebcam
 
 Edit conf.sh to match with your local directory and copy to /usr/local/bin
