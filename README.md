@@ -5,26 +5,28 @@ Prerequesites Camera :
 
 > apt-get install wvdial ftp
 
-GIt clone the project
+Git clone the project in your home directory (/home/pi/3GWebcam)
 > git clone http://github.com/yapa69/3GWebcam
 
+Edit conf.sh to match with your local directory and copy to /usr/local/bin
+> sudo cp conf.sh /usr/local/bin
+
 copy wvdial.conf to /etc/wvdial.conf (or adapt to your 3G provider, change the PIN code, scripts are made to use 100 MB/ month)
+> cp wvdial.conf /etc
 
 fill root crontab (crontab -e) with :
 ```cron
-0 12 * * * /bin/bash -x /home/pi/cam/pushcam.sh MP4 fulltemp
-0 9,16 * * * /bin/bash -x /home/pi/cam/pushcam.sh HD
-0 10,11,13,14,15,17,18 * * *  /bin/bash -x /home/pi/cam/pushcam.sh LD
-30 12,18 * * * /bin/bash -x /home/pi/cam/maintenance.sh 1500
-*/5 * * * * /home/pi/cam/readtemp.pl > /dev/null
+0 12 * * * /bin/bash -x /home/pi/3GWebcam/cam/pushcam.sh MP4 fulltemp
+0 9,16 * * * /bin/bash -x /home/pi/3GWebcam/cam/pushcam.sh HD
+0 10,11,13,14,15,17,18 * * *  /bin/bash -x /home/pi/3GWebcam/cam/pushcam.sh LD
+30 12,18 * * * /bin/bash -x /home/pi/3GWebcam/cam/maintenance.sh 1500
+*/5 * * * * /home/pi/3GWebcam/cam/readtemp.pl > /dev/null
 0 8 * * 6 /sbin/shutdown -r now
 ```
 
 boot script
 > sudo ln -s /home/pi/3GWebcam/cam/initconnec.sh /etc/init.d/initconnec.sh
 
-Edit conf.sh to match with your local directory and copy to /usr/local/bin
-> sudo cp conf.sh /usr/local/bin
 
 
 edit ***/etc/modules*** and load module in this order (to avoid an issue between camera and spi/i2c) :
