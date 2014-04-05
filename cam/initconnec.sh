@@ -8,7 +8,7 @@
 ############################################
 
 # Get variables from configuration file
-source /home/pi/3GWebcam/cam/conf.sh
+source conf.sh
 
 
 mkdir ${HOME_DIR}/log
