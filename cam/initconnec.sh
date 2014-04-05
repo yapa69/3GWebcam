@@ -10,6 +10,8 @@
 # Get variables from configuration file
 source /home/pi/3GWebcam/cam/conf.sh
 
+
+mkdir ${HOME_DIR}/log
 ${TAR_PATH} zcfP ${HOME_DIR}/log/initboot.tar.gz /var/log/syslog
 
 #at boot
