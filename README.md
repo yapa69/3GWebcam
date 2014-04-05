@@ -18,12 +18,13 @@ fill root crontab (crontab -e) with :
 ```
 
 boot script
-
 > sudo ln -s /home/pi/3GWebcam/cam/initconnec.sh /etc/init.d/initconnec.sh
 
+Edit conf.sh to match with your local directory and copy to /usr/local/bin
+> sudo cp conf.sh /usr/local/bin
 
 
-4. edit ***/etc/modules*** and load module in this order (to avoid an issue between camera and spi/i2c) :
+edit ***/etc/modules*** and load module in this order (to avoid an issue between camera and spi/i2c) :
 ```
 w1-therm
 w1-gpio pullup=1
