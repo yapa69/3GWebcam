@@ -5,6 +5,9 @@ Prerequesites Camera :
 
 > apt-get install wvdial ftp
 
+GIt clone the project
+> git clone http://github.com/yapa69/3GWebcam
+
 copy wvdial.conf to /etc/wvdial.conf (or adapt to your 3G provider, change the PIN code, scripts are made to use 100 MB/ month)
 
 fill root crontab (crontab -e) with :
