@@ -17,6 +17,10 @@ fill root crontab (crontab -e) with :
 0 8 * * 6 /sbin/shutdown -r now
 ```
 
+boot script
+sudo ln -s /home/pi/3GWebcam/initconnec.sh initconnec.sh
+
+
 
 4. edit ***/etc/modules*** and load module in this order (to avoid an issue between camera and spi/i2c) :
 ```
