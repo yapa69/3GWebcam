@@ -13,6 +13,7 @@ set -e
 PATH=/usr/local/bin
 
 # Get variables from configuration file
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 source conf.sh
 
 # Heat the resistor
