@@ -1,5 +1,9 @@
 #!/bin/bash
-RRDPATH="/home/pi/cam/RRDtemp"
+
+#get conf
+source ../conf.sh
+
+RRDPATH=${HOME_DIR}/RRDtemp
 RAWCOLOUR="#FF0000"
 RAWCOLOUR2="#0FAE0F"
 RAWCOLOUR3="#B40486"

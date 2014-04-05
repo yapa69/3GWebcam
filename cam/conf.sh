@@ -6,7 +6,7 @@ BASH_PATH=`which bash`
 TAR_PATH=`which tar`
 
 # Dir paths
-HOME_DIR="/home/pi/cam"
+HOME_DIR="/home/pi/3GWebcam/cam"
 
 # Log paths
 LOG_FILE="/tmp/sortiecam.log"
