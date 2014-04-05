@@ -10,8 +10,6 @@
 # Exit as soon as a command does not return 0
 set -e
 
-PATH=/usr/local/bin
-
 # Get variables from configuration file
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 source conf.sh
