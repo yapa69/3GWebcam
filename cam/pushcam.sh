@@ -14,8 +14,8 @@ set -e
 source conf.sh
 
 # Heat the resistor
-${PYTHON_PATH} ${HOME_DIR}/chauffe.py
-sleep 5
+#${PYTHON_PATH} ${HOME_DIR}/chauffe.py
+#sleep 5
 
 # Create png
 ${BASH_PATH} ${HOME_DIR}/RRDtemp/createpng.sh

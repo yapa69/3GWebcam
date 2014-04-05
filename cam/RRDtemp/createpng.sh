@@ -8,6 +8,7 @@ RAWCOLOUR="#FF0000"
 RAWCOLOUR2="#0FAE0F"
 RAWCOLOUR3="#B40486"
 TRENDCOLOUR="#0000FF"
+echo $RRDPATH
 
 #hour
 rrdtool graph $RRDPATH/mhour.png --start -6h -w 550 -h 200 \
