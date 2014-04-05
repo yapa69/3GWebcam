@@ -18,7 +18,8 @@ fill root crontab (crontab -e) with :
 ```
 
 boot script
-sudo ln -s /home/pi/3GWebcam/initconnec.sh initconnec.sh
+
+> sudo ln -s /home/pi/3GWebcam/initconnec.sh initconnec.sh
 
 
 
