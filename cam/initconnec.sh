@@ -8,7 +8,7 @@
 ############################################
 
 # Get variables from configuration file
-source conf.sh
+source /home/pi/3GWebcam/cam/conf.sh
 
 ${TAR_PATH} zcfP ${HOME_DIR}/log/initboot.tar.gz /var/log/syslog
 
