@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #get conf
-source ../conf.sh
+source conf.sh
 
 RRDPATH=${HOME_DIR}/RRDtemp
 RAWCOLOUR="#FF0000"
