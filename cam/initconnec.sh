@@ -13,7 +13,7 @@ source conf.sh
 ${TAR_PATH} zcf ${HOME_DIR}/log/initboot.tar.gz /var/log/syslog
 
 #at boot
-${BASH_PATH} /home/pi/cam/ppp-on
+${BASH_PATH} ${HOME_DIR}/ppp-on
 sleep 30
 
 service ntp stop
@@ -23,4 +23,4 @@ service ntp start
 #send trought ftp
 ${BASH_PATH} ${HOME_DIR}/connecftp.sh boot
 
-${BASH_PATH} /home/pi/cam/ppp-off
+${BASH_PATH} ${HOME_DIR}/ppp-off
