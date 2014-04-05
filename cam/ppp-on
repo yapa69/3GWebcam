@@ -3,7 +3,6 @@
 # Get variables from configuration file
 source conf.sh
 
-PATH=/usr/local/bin:/bin:/usr/bin
 #/sbin/ifconfig eth0 down
 wvdial pin >/dev/null 2>&1 &
 echo "pin"
