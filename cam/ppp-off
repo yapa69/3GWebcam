@@ -3,7 +3,6 @@
 # Get variables from configuration file
 source conf.sh
 
-PATH=/usr/local/bin:/bin:/usr/bin
 echo -n "Disconnecting... "
 killall wvdial
 sleep 2
