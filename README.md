@@ -38,3 +38,15 @@ i2c-bcm2708
 spi-bcm2708
 snd-bcm2835
 ```
+
+remove CRON completely from syslog
+
+replace in /etc/rsyslog.conf:
+
+> *.*;auth,authpriv.none             -/var/log/syslog
+
+by
+
+> *.*;auth,authpriv,cron.none             -/var/log/syslog
+
+ 
