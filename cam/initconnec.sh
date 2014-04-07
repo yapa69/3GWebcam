@@ -7,14 +7,13 @@
 # Tim
 ############################################
 
-
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+# Exit as soon as a command does not return 0
+set -e
 
 # Get variables from configuration file
-source conf.sh
+source /usr/local/bin/3GWebcam-conf.sh
 
-
-mkdir ${HOME_DIR}/log
+mkdir -p ${HOME_DIR}/log
 ${TAR_PATH} zcfP ${HOME_DIR}/log/initboot.tar.gz /var/log/syslog
 
 #at boot

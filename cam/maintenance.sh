@@ -11,8 +11,7 @@
 set -e
 
 # Get variables from configuration file
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-source conf.sh
+source /usr/local/bin/3GWebcam-conf.sh
 
 #/bin/bash ${HOME_DIR}/ppp-off
 kill -9 `ps aux | grep "[N]R 22222" | awk '{print $2}'` &
