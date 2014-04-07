@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Get variables from configuration file
-source conf.sh
+source /usr/local/bin/3GWebcam-conf.sh
 
 # $1 is to test if we have to send all png
 # usage : this_script fulltemp

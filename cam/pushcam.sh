@@ -8,11 +8,10 @@
 ############################################
 
 # Exit as soon as a command does not return 0
-#set -e
+set -e
 
 # Get variables from configuration file
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-source conf.sh
+source /usr/local/bin/3GWebcam-conf.sh
 
 # Heat the resistor
 ${PYTHON_PATH} ${HOME_DIR}/chauffe.py
@@ -22,7 +21,7 @@ sleep 5
 ${BASH_PATH} ${HOME_DIR}/RRDtemp/createpng.sh
 
 # Get pictures from the cam
-mkdir ${HOME_DIR}/img
+mkdir -p ${HOME_DIR}/img
 if [ "$1" = HD ] ; then
 	echo "HD"
 	raspistill -o ${HOME_DIR}/img/lastcapture.jpg -w 960 -h 720 -q 50 -n
