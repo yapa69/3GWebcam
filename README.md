@@ -8,13 +8,13 @@ Prerequesites Camera :
 Git clone the project in your home directory
 > git clone http://github.com/yapa69/3GWebcam
 
-Edit conf.sh to match with your local directory and copy to /usr/local/bin
-> sudo cp conf.sh /usr/local/bin
+Edit 3GWebcam-conf.sh to match with your local directory and copy to ***/usr/local/bin***
+> sudo cp 3GWebcam-conf.sh /usr/local/bin
 
-copy wvdial.conf to /etc/wvdial.conf (or adapt to your 3G provider, change the PIN code, scripts are made to use 100 MB/ month)
+Copy wvdial.conf to ***/etc/wvdial.conf*** (or adapt to your 3G provider, change the PIN code, scripts are made to use 100 MB/ month)
 > cp wvdial.conf /etc
 
-fill root crontab (crontab -e) with :
+Fill root crontab (crontab -e) with :
 ```cron
 0 12 * * * /bin/bash -x /home/pi/3GWebcam/cam/pushcam.sh MP4 fulltemp
 0 9,16 * * * /bin/bash -x /home/pi/3GWebcam/cam/pushcam.sh HD
@@ -24,12 +24,12 @@ fill root crontab (crontab -e) with :
 0 8 * * 6 /sbin/shutdown -r now
 ```
 
-boot script
+Boot script
 > sudo ln -s /home/pi/3GWebcam/cam/initconnec.sh /etc/init.d/initconnec.sh
 
 
 
-edit ***/etc/modules*** and load module in this order (to avoid an issue between camera and spi/i2c) :
+Edit ***/etc/modules*** and load module in this order (to avoid an issue between camera and spi/i2c) :
 ```
 w1-therm
 w1-gpio pullup=1
@@ -39,9 +39,9 @@ spi-bcm2708
 snd-bcm2835
 ```
 
-remove CRON completely from syslog
+Remove CRON completely from syslog
 
-replace in /etc/rsyslog.conf:
+Replace in ***/etc/rsyslog.conf*** :
 
 > *.*;auth,authpriv.none             -/var/log/syslog
 
