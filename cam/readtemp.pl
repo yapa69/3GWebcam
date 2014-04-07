@@ -1,4 +1,8 @@
 #!/usr/bin/perl
+
+#Get from https://github.com/g7uvw/rPI-multiDS18x20, changed device id to static (random result affer reboot)
+
+
 use strict;
 use warnings;
 
