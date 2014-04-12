@@ -58,7 +58,7 @@ sub get_device_IDs {
 	#open(FILE, "/sys/bus/w1/devices/w1_bus_master1/w1_master_slaves") or die("Unable to open file");
  
 	# read file into an array
-	@deviceIDs = ("28-000003553078","28-0000045875df"); # close file 
+	@deviceIDs = ("28-00000566cdb1","28-0000045875df"); # close file 
 	#close(FILE);
 }
 
