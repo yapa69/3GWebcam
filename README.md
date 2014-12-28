@@ -3,7 +3,7 @@
 
 Prerequesites Camera :
 
-> apt-get install wvdial ftp
+> apt-get install wvdial ftp rrdtool
 
 Git clone the project in your home directory
 > git clone http://github.com/yapa69/3GWebcam
