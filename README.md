@@ -25,9 +25,10 @@ Fill root crontab (crontab -e) with :
 ```
 
 Boot script
-> sudo ln -s /home/pi/3GWebcam/cam/initconnec.sh /etc/init.d/initconnec.sh
-> chmod +x /etc/init.d/initconnec.sh
-
+```
+sudo ln -s /home/pi/3GWebcam/cam/initconnec.sh /etc/init.d/initconnec.sh
+chmod +x /etc/init.d/initconnec.sh
+```
 
 Edit ***/etc/modules*** and load module in this order (to avoid an issue between camera and spi/i2c) :
 ```
