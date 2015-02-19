@@ -3,7 +3,7 @@
 
 Prerequesites Camera :
 
-> apt-get install wvdial ftp rrdtool
+> apt-get install wvdial ftp rrdtool ntpdate
 
 Git clone the project in your home directory
 > git clone http://github.com/yapa69/3GWebcam
@@ -26,8 +26,9 @@ Fill root crontab (crontab -e) with :
 
 Boot script
 ```
-sudo ln -s /home/pi/3GWebcam/cam/initconnec.sh /etc/init.d/initconnec.sh
-chmod +x /etc/init.d/initconnec.sh
+sudo cp /home/pi/3GWebcam/cam/initconnec /etc/init.d/initconnec
+chmod +x /etc/init.d/initconnec
+sudo update-rc.d initconnec defaults
 ```
 
 Edit ***/etc/modules*** and load module in this order (to avoid an issue between camera and spi/i2c) :
