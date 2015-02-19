@@ -1,11 +1,11 @@
 ### BEGIN INIT INFO
-# Provides:          Init3GWebcam
-# Required-Start:    $remote_fs $syslog
-# Required-Stop:     $remote_fs $syslog
+# Provides:          initconnec
+# Required-Start:    $remote_fs $syslog $network
+# Required-Stop:     
 # Default-Start:     2 3 4 5
-# Default-Stop:      0 1 6
-# Short-Description: Start daemon at boot time
-# Description:       Enable service provided by daemon.
+# Default-Stop:      
+# Short-Description: update the hour and send log
+# Description:       update the hour and send log to the server
 ### END INIT INFO
 
 
