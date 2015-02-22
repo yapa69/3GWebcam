@@ -3,7 +3,7 @@
 
 Prerequesites Camera :
 
-> apt-get install wvdial ftp rrdtool ntpdate
+> apt-get install wvdial ftp rrdtool ntpdate gpac
 
 Git clone the project in your home directory
 > git clone http://github.com/yapa69/3GWebcam
@@ -50,5 +50,8 @@ Replace in ***/etc/rsyslog.conf*** :
 by
 
 > *.*;auth,authpriv,cron.none             -/var/log/syslog
+
+change 
+>boot/config.txt (TO DO)
 
  
