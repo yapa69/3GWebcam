@@ -34,6 +34,7 @@ fi
 
 if [ "$1" = MP4 ] ; then
 	echo "MP4"
+	rm $HOME_DIR/img/lastvideo.h264 -f
 	raspivid -o ${HOME_DIR}/img/lastvideo.h264 -t 10000 --bitrate 1000000 -w 640 -h 480 -fps 12 -n
 	rm $HOME_DIR/img/lastvideo.mp4 -f
 	sleep 1
