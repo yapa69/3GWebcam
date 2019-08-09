@@ -13,9 +13,9 @@ LOG_FILE="/tmp/sortiecam.log"
 MAINTENANCE="/var/log/SSHmaintenance.log"
 
 # FTP / SCP information (server to connect to, user, document root...)
-R_USER="tbirckel"
-R_SERVER="kim.terrier.im"
-R_DIR="echartet"
+R_USER="tu m'emmerdes ludovic avec tes conventions à la con"
+R_SERVER="arrete de mirgrer"
+R_DIR=""
 
 L_SSH_KEY="/home/pi/.ssh/id_rsa"
 SSH_OPTS="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
